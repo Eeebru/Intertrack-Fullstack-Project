@@ -12,6 +12,7 @@ router.post('/signup', validInfo, async (req, res, next) => {
     const {
       name,
       password,
+      confirmPassword,
       gender,
       date_of_birth,
       email,
@@ -19,11 +20,23 @@ router.post('/signup', validInfo, async (req, res, next) => {
       state,
     } = req.body;
 
+    if (password.length < 6) {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'Password is less than 6 characters' });
+    }
+    if (password !== confirmPassword) {
+      return res
+        .status(400)
+        .json({ status: 400, message: 'Password does not match' });
+    }
     const user = await db.query('SELECT * FROM users WHERE email = $1', [
       email,
     ]);
     if (user.rows.length !== 0) {
-      return res.status(401).json('User already exist');
+      return res
+        .status(401)
+        .json({ message: `User with email ${email} already exist` });
     }
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
@@ -34,7 +47,9 @@ router.post('/signup', validInfo, async (req, res, next) => {
       [name, email, bcryptPassword, gender, date_of_birth, address, state]
     );
     const token = jwtGen(newUser.rows[0].id);
-    res.json({ token });
+    res
+      .status(201)
+      .json({ token, message: 'User created successfully', status: 201 });
   } catch (err) {
     return next(err);
   }
@@ -49,16 +64,17 @@ router.post('/login', validInfo, async (req, res, next) => {
       [email]
     );
     if (user.rows.length === 0) {
-      return res.status(401).json('Invalid Credential');
+      return res.status(401).json({ message: 'Invalid Credential' });
     }
 
     const validPassword = await bcrypt.compare(password, user.rows[0].password);
 
     if (!validPassword) {
-      return res.status(401).json('Incorrect Password');
+      return res.status(401).json({ message: 'Incorrect Password' });
     }
 
     const token = jwtGen(user.rows[0].id);
+
     res.json({ token });
   } catch (err) {
     // console.error(err.message);

@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 //signup and login routes
 
-app.use('/auth', require('./routes/auth'));
+app.use('/', require('./routes/auth'));
 // User routes
 app.use('/user', require('./routes/user'));
 
