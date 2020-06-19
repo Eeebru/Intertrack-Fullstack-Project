@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const cors = require('cors');
-// const auth = require('./routes/auth');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -15,8 +14,7 @@ app.get('/', (req, res) => {
 });
 
 //signup and login routes
-
-app.use('/', require('./routes/auth'));
+app.use('/', require('./routes/user-signup-login'));
 // User routes
 app.use('/user', require('./routes/user'));
 
@@ -31,7 +29,7 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.send({
       message: err.message,
-      error: err,
+      error: err.status,
     });
   });
 }

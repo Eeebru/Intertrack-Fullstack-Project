@@ -6,30 +6,23 @@ const jwtGen = require('../utils/jwtGen');
 const validInfo = require('../middleware/validInfo');
 const authorization = require('../middleware/userAuth');
 
+
+
+
+
 //Sign in
 router.post('/signup', validInfo, async (req, res, next) => {
   try {
-    const {
+    let {
       name,
       password,
-      confirmPassword,
       gender,
-      date_of_birth,
+      dob,
       email,
       address,
       state,
     } = req.body;
 
-    if (password.length < 6) {
-      return res
-        .status(400)
-        .json({ status: 400, message: 'Password is less than 6 characters' });
-    }
-    if (password !== confirmPassword) {
-      return res
-        .status(400)
-        .json({ status: 400, message: 'Password does not match' });
-    }
     const user = await db.query('SELECT * FROM users WHERE email = $1', [
       email,
     ]);
@@ -43,13 +36,13 @@ router.post('/signup', validInfo, async (req, res, next) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
 
     const newUser = await db.query(
-      'INSERT INTO users (name, email, password, gender, date_of_birth, address, state) VALUES($1,$2,$3,$4,$5,$6,$7)  RETURNING *',
-      [name, email, bcryptPassword, gender, date_of_birth, address, state]
+      'INSERT INTO users (name, email, password, gender, dob, address, state) VALUES($1,$2,$3,$4,$5,$6,$7)  RETURNING *',
+      [name, email, bcryptPassword, gender, dob, address, state]
     );
-    const token = jwtGen(newUser.rows[0].id);
+    const token = jwtGen(newUser.rows[0].id);    
     res
       .status(201)
-      .json({ token, message: 'User created successfully', status: 201 });
+      .json({ token, message: 'User Created Successfully', status: 201 });
   } catch (err) {
     return next(err);
   }
@@ -64,7 +57,7 @@ router.post('/login', validInfo, async (req, res, next) => {
       [email]
     );
     if (user.rows.length === 0) {
-      return res.status(401).json({ message: 'Invalid Credential' });
+      return res.status(401).json({ message: 'Invalid Credential(s)' });
     }
 
     const validPassword = await bcrypt.compare(password, user.rows[0].password);
@@ -77,8 +70,6 @@ router.post('/login', validInfo, async (req, res, next) => {
 
     res.json({ token });
   } catch (err) {
-    // console.error(err.message);
-    // res.status(500).send('Server Error');
     return next(err);
   }
 });
