@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'gilroy';
+  src: url(/frontend/src/font/Gilroy.otf);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'gilroy' !important;
+  background-color: #ffffff !important;
+}

@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Pacifico';
+  src: url(/frontend//src/font/Pacifico.otf);
+}
+
+.landing {
+  width: 100%;
+  height: 100vh;
+  background-image: url('../src/img/Group\ 324@2x.png');
+  background-size: 100% 100%;
+}
+
+nav {
+  font-size: 1.7rem;
+  color: #141414 !important;
+}
+.logo {
+  /* width: 149px; */
+  height: 54.5px;
+  font-family: 'Pacifico' !important;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.82;
+  letter-spacing: normal;
+  text-align: left;
+  color: #10d6de;
+}
+
+.motto,
+.productHeader {
+  height: 40px;
+  font-family: 'Gilroy';
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+  text-align: center;
+  color: #141414;
+}
+
+.saying,
+.productText {
+  height: 15.5px;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: #141414;
+}
+.productList {
+  margin-top: 100px;
+  display: flex !important;
+  justify-content: space-evenly !important;
+}
+.productCard {
+  width: 199px;
+  height: 248.5px;
+  border: solid 0.5px #707070ab;
+  border-radius: 20px;
+}
+
+.contentHeader {
+  margin: 10px;
+  height: 36.5px;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+
+  color: #141414;
+}
+
+.startingFrom {
+  height: 13.5px;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+
+  color: #141414;
+}
+
+.month {
+  height: 25.5px;
+  font-family: 'Gilroy';
+  font-size: 30px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.42;
+  letter-spacing: normal;
+
+  color: #141414;
+}
+
+.quote {
+  margin-top: 50px;
+  width: 158px;
+  height: 32px;
+  border-radius: 10px;
+  background-color: #10de9f;
+  color: #ffffff;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
