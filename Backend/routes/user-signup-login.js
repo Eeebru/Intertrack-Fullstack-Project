@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const db = require('../db');
 const jwtGen = require('../utils/jwtGen');
 const validInfo = require('../middleware/validInfo');
-const authorization = require('../middleware/userAuth');
 
 
 
@@ -74,13 +73,13 @@ router.post('/login', validInfo, async (req, res, next) => {
   }
 });
 
-router.get('/verify', authorization, async (req, res) => {
-  try {
-    res.json(true);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server Error');
-  }
-});
+// router.get('/verify', authorization, async (req, res) => {
+//   try {
+//     res.json(true);
+//   } catch (err) {
+//     console.error(err.message);
+//     res.status(500).send('Server Error');
+//   }
+// });
 
 module.exports = router;

@@ -19,6 +19,8 @@ app.use('/', require('./routes/user-signup-login'));
 app.use('/user', require('./routes/user'));
 //add product route
 app.use('/', require('./routes/product'));
+//making order route
+app.use('/', require('./routes/order'));
 
 app.use((req, res, next) => {
   let err = new Error('Not Found');

@@ -21,7 +21,7 @@ router.post("/addproduct", async (req, res) => {
 	}
 });
 
-//get fishes
+//get products
 router.get("/products", async (req, res) => {
 	try {
 		const prod = await db.query("SELECT * FROM products");

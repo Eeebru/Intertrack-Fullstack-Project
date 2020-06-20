@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
     const payload = jwt.verify(jwtToken, process.env.SECRET);
     console.log(payload);
     
-    req.user = payload.user;
+    req.id = payload.user;
     next();
   } catch (err) {
     res.status(401).json({ msg: 'Token is not valid' });

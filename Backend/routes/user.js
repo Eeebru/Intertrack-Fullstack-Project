@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
-const authorization = require('../middleware/userAuth');
-const moment = require('moment');
+const auth = require('../middleware/userAuth');
+// const moment = require('moment');
 
-router.get('/', authorization, async (req, res) => {
+router.get('/', auth, async (req, res) => {
   try {
-    const user = await db.query('SELECT * FROM users WHERE id=$1', [req.user]);
+    const user = await db.query(
+			"SELECT *, products.name FROM users JOIN orders ON orders.user_id=$1 JOIN products ON products.id=orders.product_id ORDER BY orders.id",
+			[req.id]
+		);
     res.json(user.rows[0]);
     console.log(user.rows[0]);
   } catch (err) {
