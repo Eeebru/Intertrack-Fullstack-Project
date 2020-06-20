@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
-router.post("/", async (req, res) => {
+router.post("/addproduct", async (req, res) => {
 	try {
 		const {
 			name,
@@ -16,6 +16,16 @@ router.post("/", async (req, res) => {
 		);
 
 		res.status(200).json({ result: product.rows[0] });
+	} catch (error) {
+		console.log(error);
+	}
+});
+
+//get fishes
+router.get("/products", async (req, res) => {
+	try {
+		const prod = await db.query("SELECT * FROM products");
+		res.status(200).json(prod.rows);
 	} catch (error) {
 		console.log(error);
 	}
