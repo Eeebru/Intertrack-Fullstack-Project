@@ -4,16 +4,19 @@ const db = require('../db');
 const auth = require('../middleware/userAuth');
 // const moment = require('moment');
 
+
+// we are doing the many to many call here because when a user is logging in they should find their subscriptions on their dashboard
 router.get('/', auth, async (req, res) => {
   try {
     const user = await db.query(
-			"SELECT *, products.name FROM users JOIN orders ON orders.user_id=$1 JOIN products ON products.id=orders.product_id ORDER BY orders.id",
+			"SELECT u.name, u.email, p.name FROM users u JOIN orders ord ON $1=ord.user_id JOIN products p ON p.id=ord.product_id",
 			[req.id]
-		);
-    res.json(user.rows[0]);
-    console.log(user.rows[0]);
+    );
+    console.log(req.id);
+    res.json(user.rows);
+    console.log(user.rows);
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     res.status(500).json('Server Error');
   }
 });

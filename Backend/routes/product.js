@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 
+
+//basically to put products into the products table
 router.post("/addproduct", async (req, res) => {
 	try {
 		const {

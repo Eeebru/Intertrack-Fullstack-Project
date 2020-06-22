@@ -5,10 +5,6 @@ const db = require('../db');
 const jwtGen = require('../utils/jwtGen');
 const validInfo = require('../middleware/validInfo');
 
-
-
-
-
 //Sign in
 router.post('/signup', validInfo, async (req, res, next) => {
   try {
@@ -72,14 +68,5 @@ router.post('/login', validInfo, async (req, res, next) => {
     return next(err);
   }
 });
-
-// router.get('/verify', authorization, async (req, res) => {
-//   try {
-//     res.json(true);
-//   } catch (err) {
-//     console.error(err.message);
-//     res.status(500).send('Server Error');
-//   }
-// });
 
 module.exports = router;
