@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'gilroy';
-  src: url(/frontend/src/font/Gilroy.otf);
+  src: url('./font/Gilroy.otf');
 }
 
 html {

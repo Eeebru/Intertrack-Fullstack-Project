@@ -56,6 +56,11 @@ const NavBar = () => {
           </li>
           <li className='nav-item mr-4'>
             <a className='nav-link text-dark' href='#'>
+              Sign in
+            </a>
+          </li>
+          <li className='nav-item mr-4'>
+            <a className='nav-link text-dark' href='#'>
               Sign up
             </a>
           </li>

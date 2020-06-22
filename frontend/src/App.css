@@ -1,6 +1,10 @@
 @font-face {
+  font-family: 'gilroy';
+  src: url('./font/Gilroy.otf');
+}
+@font-face {
   font-family: 'Pacifico';
-  src: url(/frontend//src/font/Pacifico.otf);
+  src: url('./font/Pacifico.otf');
 }
 
 .landing {
@@ -13,13 +17,15 @@
 nav {
   font-size: 1.7rem;
   color: #141414 !important;
+  font-weight: bold;
+  font-family: 'gilroy' !important;
 }
 .logo {
   /* width: 149px; */
   height: 54.5px;
   font-family: 'Pacifico' !important;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: bolder;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.82;
@@ -29,11 +35,12 @@ nav {
 }
 
 .motto,
-.productHeader {
+.productHeader,
+.infoHeader {
   height: 40px;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
   font-size: 30px;
-  font-weight: 500;
+  font-weight: bolder;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.42;
@@ -43,11 +50,12 @@ nav {
 }
 
 .saying,
-.productText {
+.productText,
+.infoText {
   height: 15.5px;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
   font-size: 15px;
-  font-weight: 300;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.4;
@@ -70,40 +78,37 @@ nav {
 .contentHeader {
   margin: 10px;
   height: 36.5px;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: bolder;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.43;
   letter-spacing: normal;
-
   color: #141414;
 }
 
 .startingFrom {
   height: 13.5px;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
   font-size: 15px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.4;
   letter-spacing: normal;
-
   color: #141414;
 }
 
 .month {
   height: 25.5px;
-  font-family: 'Gilroy';
+  font-family: 'Gilroy' !important;
   font-size: 30px;
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.42;
   letter-spacing: normal;
-
   color: #141414;
 }
 
@@ -114,6 +119,23 @@ nav {
   border-radius: 10px;
   background-color: #10de9f;
   color: #ffffff;
+  font-family: 'Gilroy' !important;
+  font-size: 15px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
+
+.info {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.infoTitle {
+  /* width: 155px; */
+  height: 14.5px;
   font-family: 'Gilroy';
   font-size: 15px;
   font-weight: bold;
@@ -121,4 +143,119 @@ nav {
   font-style: normal;
   line-height: 1.43;
   letter-spacing: normal;
+  text-align: left;
+  color: #141414;
+}
+.infoBody {
+  width: 268px;
+  height: 185.5px;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+  color: #141414;
+}
+
+.infoBtn {
+  margin-left: 60px;
+  width: 158px;
+  height: 32px;
+  border-radius: 10px;
+  background-color: #10de9f;
+  font-family: 'Gilroy';
+  font-size: 13px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+
+  /* letter-spacing: normal; */
+  text-align: center;
+  color: #ffffff;
+}
+
+.pie {
+  display: flex;
+  justify-content: space-around;
+  margin-right: 80px;
+}
+
+.pie p {
+  /* width: 118.5px; */
+  height: 37px;
+  font-family: 'Gilroy';
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: #141414;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 10% 90%;
+  /* grid-template-rows: 1fr 1fr; */
+  grid-template-areas:
+    'side head'
+    'side body';
+  width: 100%;
+  height: 177px;
+  color: #ffffff;
+  background-color: #141414;
+}
+
+.footerTop {
+  grid-area: head;
+  display: flex;
+  justify-content: space-around;
+}
+
+.region select {
+  width: 199px;
+  height: 16px;
+  border-radius: 2.5px;
+  border: solid 0.5px #ffffff;
+}
+/* .getOurApp {
+  float: right;
+} */
+.footerSide {
+  grid-area: side;
+  display: flex;
+  /* margin: 10px; */
+  /* justify-content: center; */
+  justify-self: center;
+  align-self: center;
+  width: 31px;
+  height: 54.5px;
+  font-family: 'Pacifico';
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.82;
+  letter-spacing: normal;
+  /* text-align: left; */
+  color: #10d6de;
+}
+
+.footerBody {
+  grid-area: body;
+  /* width: 820px;
+  height: 41px; */
+  font-family: 'Gilroy';
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.45;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
 }
