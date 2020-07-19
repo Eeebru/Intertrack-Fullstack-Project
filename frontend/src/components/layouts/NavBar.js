@@ -5,8 +5,8 @@ import GlobeIcon from '../../icons/globeIcons';
 const NavBar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-light  '>
-      {/* <a className='navbar-brand' href='#'>
-        Navbar
+      <a className='navbar-brand logo' href='#'>
+        Ai
       </a>
       <button
         className='navbar-toggler'
@@ -18,7 +18,7 @@ const NavBar = () => {
         aria-label='Toggle navigation'
       >
         <span className='navbar-toggler-icon'></span>
-      </button> */}
+      </button>
 
       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul className='navbar-nav mr-auto '>
@@ -64,12 +64,12 @@ const NavBar = () => {
               Sign up
             </a>
           </li>
-          <li className='nav-item mr-4'>
+          {/* <li className='nav-item mr-4'>
             <SearchIcon />
           </li>
           <li className='nav-item mr-4'>
             <GlobeIcon />
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>
