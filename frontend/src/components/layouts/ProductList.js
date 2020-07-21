@@ -27,7 +27,7 @@ const ProductList = () => {
             <div className=' text-center productCard col-md-3 '>
               <CrossIcon />
               <h3 className='contentHeader '>
-                Health <br /> Insurance
+                Life & Health <br /> Insurance
               </h3>
               <p className='startingFrom '>Starting from</p>
               <h4 className='month '>$5/month</h4>

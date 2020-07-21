@@ -23,6 +23,7 @@ nav {
 }
 .logo {
   /* width: 149px; */
+  display: none;
   height: 54.5px;
   font-family: 'Pacifico' !important;
   font-size: 30px;
@@ -165,7 +166,48 @@ nav {
   text-align: center;
   color: #ffffff;
 }
+.insureBtn,
+.insureContactBtn,
+.insureUpdateBtn {
+  margin-left: 60px;
 
+  border-radius: 10px;
+  background-color: #10de9f;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  text-align: center;
+  color: #ffffff;
+}
+
+.insureImages {
+  width: 230px;
+}
+
+.imagesColumn {
+  float: right;
+}
+.aboutUs p {
+  font-size: 19px;
+}
+.aboutUsImage {
+  width: 70%;
+  position: relative;
+  left: 15%;
+}
+
+.aboutUsBtn {
+  position: relative;
+  left: 44%;
+  border-radius: 10px;
+  background-color: #10de9f;
+  font-size: 20px;
+  font-weight: bold;
+
+  text-align: center;
+  color: #ffffff;
+}
 .dashboard {
   font-size: 2rem;
 }
@@ -375,6 +417,9 @@ nav {
 
 /* Small Screens */
 @media screen and (min-width: 360px) and (max-width: 868px) {
+  .logo {
+    display: block;
+  }
   .landing {
     width: 100%;
     height: 50vh;
@@ -430,6 +475,59 @@ nav {
     margin-bottom: 12px;
     border: solid 0.5px #707070ab;
     border-radius: 20px;
+  }
+
+  .insure h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .insure h3 {
+    font-size: 1.3rem;
+  }
+
+  .insure h5 {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .insure h4 {
+    font-size: 1rem;
+    font-weight: bolder;
+  }
+  .insureBtn {
+    margin-left: 100px;
+    border-radius: 10px;
+    background-color: #10de9f;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #ffffff;
+  }
+  .insureUpdateBtn,
+  .insureContactBtn {
+    margin-left: 0px;
+    border-radius: 10px;
+    background-color: #10de9f;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    color: #ffffff;
+  }
+  .insureImages {
+    margin-left: 50px;
+  }
+
+  .aboutUsBtn {
+    position: relative;
+    left: 35%;
+    border-radius: 10px;
+    background-color: #10de9f;
+    font-size: 18px;
+    font-weight: normal;
+
+    text-align: center;
+    color: #ffffff;
   }
   .profileRight {
     margin-left: 50px;
