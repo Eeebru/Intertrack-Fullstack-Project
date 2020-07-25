@@ -5,6 +5,8 @@ import Footer from '../layouts/Footer';
 import NavBar from '../layouts/NavBar';
 import Dashboard from './dashboard/Dashboard';
 import EditDashboard from './dashboard/EditDashboard';
+import Insure from './Insure';
+import Aboutus from './Aboutus';
 
 const Home = () => {
   return (
@@ -13,7 +15,9 @@ const Home = () => {
       {/* <Dashboard /> */}
       {/* <EditDashboard /> */}
       {/* <Landing /> */}
-      <ProductList />
+      {/* <ProductList /> */}
+      {/* <Insure /> */}
+      <Aboutus />
       {/* <Footer /> */}
     </div>
   );

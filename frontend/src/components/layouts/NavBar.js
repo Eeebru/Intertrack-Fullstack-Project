@@ -1,6 +1,4 @@
 import React from 'react';
-import SearchIcon from '../../icons/searchIcon';
-import GlobeIcon from '../../icons/globeIcons';
 
 const NavBar = () => {
   return (

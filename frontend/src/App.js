@@ -12,6 +12,7 @@ const App = () => {
     <Provider store={store}>
       <NavBar />
       <Home />
+
       <Footer />
     </Provider>
   );
