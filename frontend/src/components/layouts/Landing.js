@@ -1,10 +1,10 @@
 import React from 'react';
-import NavBar from './NavBar';
+// import NavBar from './NavBar';
 
 const Landing = () => {
   return (
     <div className='landing'>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <div className='mt-5'>
         <h2 className='logo text-center'>Alles Insurance</h2>

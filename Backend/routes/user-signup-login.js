@@ -5,18 +5,10 @@ const db = require('../db');
 const jwtGen = require('../utils/jwtGen');
 const validInfo = require('../middleware/validInfo');
 
-//Sign in
+//Sign up
 router.post('/signup', validInfo, async (req, res, next) => {
   try {
-    let {
-      name,
-      password,
-      gender,
-      dob,
-      email,
-      address,
-      state,
-    } = req.body;
+    let { name, password, gender, dob, email, address, state } = req.body;
 
     const user = await db.query('SELECT * FROM users WHERE email = $1', [
       email,
@@ -34,7 +26,7 @@ router.post('/signup', validInfo, async (req, res, next) => {
       'INSERT INTO users (name, email, password, gender, dob, address, state) VALUES($1,$2,$3,$4,$5,$6,$7)  RETURNING *',
       [name, email, bcryptPassword, gender, dob, address, state]
     );
-    const token = jwtGen(newUser.rows[0].id);    
+    const token = jwtGen(newUser.rows[0].id);
     res
       .status(201)
       .json({ token, message: 'User Created Successfully', status: 201 });
