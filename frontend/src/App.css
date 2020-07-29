@@ -1,7 +1,10 @@
+@import '~antd/dist/antd.css';
+
 @font-face {
   font-family: 'gilroy';
   src: url('./font/Gilroy.otf');
 }
+
 @font-face {
   font-family: 'Pacifico';
   src: url('./font/Pacifico.otf');
@@ -20,6 +23,7 @@ nav {
   font-weight: bold;
   font-family: 'gilroy' !important;
 }
+
 .logo {
   /* width: 149px; */
   height: 54.5px;
@@ -63,11 +67,13 @@ nav {
   text-align: center;
   color: #141414;
 }
+
 .productList {
   margin-top: 100px;
   display: flex !important;
   justify-content: space-evenly !important;
 }
+
 .productCard {
   width: 199px;
   height: 248.5px;
@@ -146,6 +152,7 @@ nav {
   text-align: left;
   color: #141414;
 }
+
 .infoBody {
   width: 268px;
   height: 185.5px;
@@ -222,6 +229,7 @@ nav {
   border-radius: 2.5px;
   border: solid 0.5px #ffffff;
 }
+
 /* .getOurApp {
   float: right;
 } */
