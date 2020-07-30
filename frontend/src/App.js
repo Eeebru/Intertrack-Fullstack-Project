@@ -4,11 +4,16 @@ import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
 import Home from './components/pages/Home';
+import NavBar from './components/layouts/NavBar';
+import Footer from './components/layouts/Footer';
 
 const App = () => {
   return (
     <Provider store={store}>
+      <NavBar />
       <Home />
+
+      <Footer />
     </Provider>
   );
 };

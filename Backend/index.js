@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('tiny'));
 
-//The vey root route
+//The very root route
 app.get('/', (req, res) => {
   res.send({ message: 'WELCOME APP IN DEVELOPMENT!!' });
 });
