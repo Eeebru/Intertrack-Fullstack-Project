@@ -16,8 +16,7 @@
 
 const { Client } = require("pg");
 
-const conString =
-	"postgres://xkyjplyb:8JY4KHGtExYaEEga_4dkVwJugdRBaKEF@ruby.db.elephantsql.com:5432/xkyjplyb";
+const conString = process.env.conString;
 const client = new Client(conString);
 
 client.connect(function (err) {
