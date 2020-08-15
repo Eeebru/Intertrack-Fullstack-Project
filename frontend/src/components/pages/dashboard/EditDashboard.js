@@ -1,27 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { updatedUser, getCurrentUser } from '../../../actions/userActions';
 
-const EditDashboard = () => {
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const EditDashboard = ({
+  updatedUser,
+  user,
+
+  getCurrentUser,
+}) => {
+  const [input, setInput] = useState({
+    name: '',
+    email: '',
+    address: '',
+    dob: '',
+    job: '',
+    gender: '',
+    residential_status: '',
+    dependants: '',
+  });
+
+  useEffect(() => {
+    getCurrentUser();
+  }, [getCurrentUser]);
+  const { userObj } = user;
+
+  const history = useHistory();
+
+  const {
+    name,
+    email,
+    address,
+    dob,
+    job,
+    gender,
+    residential_status,
+    dependants,
+  } = input;
+  const onChange = (e) => {
+    setInput({ ...input, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    const updatedData = {
+      id: userObj.id,
+      name,
+      email,
+      address,
+      dob,
+      job,
+      gender,
+      residential_status,
+      dependants,
+    };
+    updatedUser(updatedData, history);
+  };
   return (
     <div className='container editDashboard mt-5'>
       <div className='row'>
         <div className='col-md-10 mx-auto'>
-          <form action=''>
+          <form onSubmit={onSubmit}>
             <div className='form-group row inputTwo'>
               <div className='col-sm-6'>
-                <label htmlFor='fullName'>Full Name</label>
+                <label htmlFor='name'>Full Name</label>
                 <input
                   type='text'
                   className='form-control '
-                  name='fullName'
+                  name='name'
+                  onChange={onChange}
+                  value={name}
                   placeholder='Full Name'
                 />
               </div>
               <div className='col-sm-6 '>
-                <label htmlFor='dateOfBirth '>Date of Birth</label>
+                <label htmlFor='email'>Email</label>
                 <input
-                  type='date'
+                  type='email'
                   className='form-control'
-                  name='dateOfBirth'
+                  name='email'
+                  onChange={onChange}
+                  value={email}
+                  placeholder='Email'
                 />
               </div>
             </div>
@@ -32,99 +94,75 @@ const EditDashboard = () => {
                   type='text'
                   className='form-control'
                   name='address'
+                  onChange={onChange}
+                  value={address}
                   placeholder='Home Address'
                 />
               </div>
               <div className='col-sm-6'>
-                <label htmlFor='email'>Email</label>
+                <label htmlFor='dob '>Date of Birth</label>
                 <input
-                  type='email'
+                  type='date'
                   className='form-control'
-                  name='email'
-                  placeholder='Email'
+                  name='dob'
+                  onChange={onChange}
+                  value={dob}
                 />
               </div>
             </div>
             <div className='form-group row inputTwo'>
               <div className='col-sm-6'>
-                <label htmlFor='occupation'>Occupation</label>
+                <label htmlFor='job'>Occupation</label>
                 <input
                   type='text'
                   className='form-control'
-                  name='occupation'
+                  name='job'
+                  onChange={onChange}
+                  value={job}
                   placeholder='Occupation'
                 />
               </div>
               <div className='col-sm-6'>
-                <label htmlFor='bvn'>BVN/SSN</label>
+                <label htmlFor='gender'>Gender</label>
                 <input
                   type='text'
                   className='form-control'
-                  name='bvn'
-                  placeholder='BVN/SSN'
+                  name='gender'
+                  onChange={onChange}
+                  value={gender}
+                  placeholder='Male/Female'
                 />
               </div>
             </div>
-            <div className='form-group row'>
+            <div className='form-group row inputTwo'>
               <div className='col-sm-6'>
-                <h5 className='mt-2'>Residential Status</h5>
-                <div className='custom-control custom-radio custom-control-inline'>
-                  <input
-                    type='radio'
-                    className='custom-control-input'
-                    name='renting'
-                    id='renting'
-                  />
-                  <label htmlFor='renting' className='custom-control-label'>
-                    {' '}
-                    Renting
-                  </label>
-                </div>
-                <div className='custom-control custom-radio custom-control-inline'>
-                  <input
-                    type='radio'
-                    className='custom-control-input'
-                    name='own'
-                    id='own'
-                  />
-                  <label htmlFor='own' className='custom-control-label'>
-                    {' '}
-                    Own
-                  </label>
-                </div>
+                <label htmlFor='residential_status'>Residential Status</label>
+                <input
+                  type='text'
+                  className='form-control'
+                  name='residential_status'
+                  onChange={onChange}
+                  value={residential_status}
+                  placeholder='Renting or Owns a house'
+                />
               </div>
               <div className='col-sm-6'>
-                <h5 className='mt-2'>Dependants</h5>
-                <div className='custom-control custom-radio custom-control-inline'>
-                  <input
-                    type='radio'
-                    className='custom-control-input'
-                    name='yes'
-                    id='yes'
-                  />
-                  <label htmlFor='yes' className='custom-control-label'>
-                    {' '}
-                    Yes
-                  </label>
-                </div>
-                <div className='custom-control custom-radio custom-control-inline'>
-                  <input
-                    type='radio'
-                    className='custom-control-input radio'
-                    name='no'
-                    id='no'
-                  />
-                  <label htmlFor='no' className='custom-control-label'>
-                    {' '}
-                    No
-                  </label>
-                </div>
+                <label htmlFor='dependants'>Dependants</label>
+                <input
+                  type='text'
+                  className='form-control'
+                  name='dependants'
+                  onChange={onChange}
+                  value={dependants}
+                  placeholder='Number of dependants'
+                />
               </div>
             </div>
+
             <input
               type='submit'
               value='Submit'
-              className='btn mt-4  d-md btn-block editProfileBtn'
+              className='btn btn-lg mt-4  d-md editProfileBtn'
             />
           </form>
         </div>
@@ -133,4 +171,11 @@ const EditDashboard = () => {
   );
 };
 
-export default EditDashboard;
+const mapStateToProps = (state) => ({
+  user: state.user.User,
+});
+
+export default connect(mapStateToProps, {
+  updatedUser,
+  getCurrentUser,
+})(EditDashboard);

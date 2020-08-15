@@ -1,5 +1,6 @@
 import React from 'react';
 import Image9 from '../../img/aboutus.png';
+
 const Aboutus = () => {
   return (
     <section className='aboutUs mt-5'>

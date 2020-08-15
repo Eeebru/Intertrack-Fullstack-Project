@@ -67,7 +67,7 @@ nav {
 }
 .productCard {
   /* width: 199px; */
-  height: 280px;
+  height: 300px;
   border: solid 0.5px #707070ab;
   border-radius: 20px;
 }
@@ -220,8 +220,8 @@ nav {
   text-align: left;
   font-weight: bolder;
 }
-/* .profile{
-
+/* .profile {
+  font-size: large;
 } */
 .profile h2 {
   font-weight: 900;
@@ -236,15 +236,18 @@ nav {
 }
 .profile p {
   font-weight: 200;
-  font-size: 20px !important;
+  font-size: 16px !important;
 }
 
 .profileRight h5 {
   margin-top: 20px;
   font-weight: 900;
 }
+.profileRight h4 {
+  font-size: 15px;
+}
 .profileRight {
-  margin-left: 50px;
+  margin-left: 100px;
 }
 .dashboard p {
   /* font-weight: bold; */
@@ -259,6 +262,12 @@ nav {
   font-size: 15px;
   font-weight: bolder;
   color: #ffffff;
+}
+.table {
+  font-size: large;
+}
+.mobileTable {
+  display: none;
 }
 .flipCard {
   width: 300px;
@@ -326,7 +335,7 @@ nav {
 }
 
 .inputTwo input {
-  width: 337px;
+  /* width: 337px; */
   height: 49px;
   border-radius: 10px;
   border: solid 0.5px #141414;
@@ -350,7 +359,53 @@ nav {
   border-radius: 10px;
   background-color: #10de9f;
 }
+.signIn,
+.signUp {
+  height: 66vh;
+}
 
+.authBtn {
+  width: 300px;
+  height: 49px;
+  color: #10de9f;
+  border-radius: 10px;
+  border: 3px solid #10de9f;
+}
+.peach {
+  width: 100px;
+}
+.authInput input {
+  /* width: 337px; */
+  height: 49px;
+  border-radius: 10px;
+  border: solid 0.5px #141414;
+}
+
+.fakeLabel {
+  display: none;
+}
+
+.productListCard {
+  /* width: 199px; */
+  height: 300px;
+  border: solid 0.5px #707070ab;
+  border-radius: 20px;
+}
+.buy {
+  position: relative;
+  margin-top: 50px;
+
+  border-radius: 10px;
+  background-color: #10de9f;
+  color: #ffffff;
+  font-family: 'Gilroy' !important;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+}
 .footer {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -409,16 +464,19 @@ nav {
 }
 
 /* Meduim upwards Screens */
-@media screen and (min-width: 868px) and (max-width: 1024) {
+@media screen and (min-width: 868px) and (max-width: 1200) {
   .spacer {
-    margin-left: 20px;
+    margin-left: 20px !important;
   }
 }
 
 /* Small Screens */
-@media screen and (min-width: 360px) and (max-width: 868px) {
+@media screen and (min-width: 300px) and (max-width: 868px) {
   .logo {
     display: block;
+  }
+  .products {
+    font-size: small;
   }
   .landing {
     width: 100%;
@@ -530,7 +588,7 @@ nav {
     color: #ffffff;
   }
   .profileRight {
-    margin-left: 50px;
+    margin-left: 0px;
   }
   .policies {
     margin-top: 40px;
@@ -538,6 +596,20 @@ nav {
 
   .spacer {
     margin-top: 0;
+  }
+  .card {
+    display: none;
+  }
+  .table {
+    font-size: 1rem;
+  }
+  .mobileTable {
+    display: block;
+    font-size: 1rem;
+  }
+  .policiesControl {
+    display: flex;
+    flex-wrap: wrap;
   }
   .cardPrice {
     font-size: 20px;
@@ -549,6 +621,13 @@ nav {
     width: 300px;
     height: 250px;
   }
+  /* .flipCard {
+    width: 300px;
+    height: 350px;
+    perspective: 1000px;
+    background-color: #ffffff;
+    border-radius: 30px;
+  } */
   .flipCard p {
     font-size: 10px;
   }
@@ -578,6 +657,24 @@ nav {
     border: solid 0.5px #141414;
   }
 
+  .signIn,
+  .signUp {
+    height: auto;
+  }
+
+  .fakeLabel {
+    display: block;
+  }
+
+  .signIn,
+  .signUp h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .signIn,
+  .signUp h2 {
+    font-size: 1.5rem;
+  }
   .editDashboard {
     font-size: 15px;
     margin-bottom: 40px;

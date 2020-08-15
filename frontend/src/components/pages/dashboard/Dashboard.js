@@ -1,118 +1,122 @@
-import React from 'react';
-import WhiteCrossIcon from '../../../icons/whiteCrossIcon';
-import WhiteHouseIcon from '../../../icons/whiteHouseIcon';
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Moment from 'react-moment';
+import { connect } from 'react-redux';
+import { getCurrentUser, getUserStatus } from '../../../actions/userActions';
+import isEmpty from '../../../validation/is-empty';
+import { useEffect } from 'react';
+import Spinner from '../../common/Spinner';
+import DashboardPolicies from './DashboardPolicies';
+import DashboardStatus from './DashboardStatus';
 
-const Dashboard = () => {
-  return (
-    <div className='dashboard mt-5'>
-      <div className='container'>
-        <div className='row '>
-          <div className='col-md-6 col-sm-6 '>
-            <h1 className='mb-5'>Profile</h1>
+const Dashboard = ({
+  getCurrentUser,
+  user,
+  loading,
+  getUserStatus,
+  status,
+}) => {
+  useEffect(() => {
+    getCurrentUser();
+    getUserStatus();
+  }, [getCurrentUser, getUserStatus]);
+
+  // console.log(userObj, offers);
+
+  let profileContent;
+  if (user === {} || loading) {
+    profileContent = <Spinner />;
+  } else {
+    if (Object.keys(user).length > 0) {
+      const { userObj } = user;
+
+      if (
+        userObj.job === null &&
+        userObj.address === null &&
+        userObj.dependants === null &&
+        userObj.dob === null &&
+        userObj.residential_status === null
+      ) {
+        profileContent = (
+          <div>
+            <h3>Please fill in your complete profile details</h3>
+            <Link
+              to='/edit_profile'
+              type='button'
+              className='editBtn btn my-3 '
+            >
+              Edit Profile
+            </Link>
+          </div>
+        );
+      } else {
+        profileContent = (
+          <Fragment>
             <div className='profile d-flex flex-md-row flex-sm-column flex-xs-column'>
               <div className='profileLeft'>
                 <h2>
-                  <strong>Ray Chu</strong>
-                  <p>Accountant</p>
+                  <strong>{userObj.name}</strong>
+                  <p>{userObj.job}</p>
                 </h2>
 
                 <h5>Home Address</h5>
-                <p>
-                  Owode 17,
-                  <br />
-                  Iwaya,Yaba
-                  <br />
-                  Lagos.
-                </p>
+                <p>{userObj.address}</p>
                 <h5>Residential Status</h5>
-                <p>Renting</p>
+                <p>{userObj.residential_status}</p>
               </div>
               <div className='profileRight'>
                 <div>
-                  <h4>07/12/1992</h4>
-                  <p>raychu@gmail.com</p>
+                  <h4>
+                    <Moment format='YYYY/MM/DD'>{userObj.dob}</Moment>
+                  </h4>
+                  <p>{userObj.email}</p>
                 </div>
                 <h5>Dependants</h5>
-                <p>None</p>
+                <p>{userObj.dependants}</p>
               </div>
             </div>
-            <button type='button' className='editBtn btn my-3 '>
+            <Link
+              to='/edit_profile'
+              type='button'
+              className='editBtn btn my-3 '
+            >
               Edit Profile
-            </button>
-          </div>
-          <div className='col-md-6 col-sm-6  policies'>
-            <h1 className='mb-5 '>Policies</h1>
-            <div className='d-flex flex-md-row flex-sm-column'>
-              <div className='card flipCard '>
-                <div className='flipCardInner'>
-                  <div className='flipCardFront'>
-                    <WhiteCrossIcon />
-                    <h2
-                      className='card-title mt-md-4 '
-                      style={{ fontWeight: 'bolder' }}
-                    >
-                      Health
-                      <br /> Insurance
-                    </h2>
-                    <p className='card-text mt-md-5'>
-                      Coverage covers most doctor and hospital visits
-                      prescription drugs, wellness care and medical devices
-                    </p>
-                    {/* <hr
-                      style={{ backgroundColor: 'white', marginTop: '90px' }}
-                    /> */}
-                  </div>
-                  <div className='flipCardBack'>
-                    <div className='cardPrice'>$5/month</div>
-                    <h5>EXPIRES ON </h5>
-                    <p>
-                      {' '}
-                      <strong className='expiresOn'>10/08/2020</strong>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='card flipCard spacer'>
-                <div className='flipCardInner'>
-                  <div className='flipCardFront'>
-                    <WhiteHouseIcon />
-                    <h2
-                      className='card-title mt-md-4'
-                      style={{ fontWeight: 'bolder' }}
-                    >
-                      Home
-                      <br /> Insurance
-                    </h2>
-                    <p className='card-text mt-md-5'>
-                      Coverage protects you financially in event of
-                      circumstance(flood, fire outbreak, theft, storm) that
-                      could make you lose your property.
-                    </p>
-                    {/* <hr
-                      style={{ backgroundColor: 'white', marginTop: '70px' }}
-                    /> */}
-                  </div>
-                  <div className='flipCardBack text-center'>
-                    <div className='cardPrice'>$10/month</div>
-                    <h5>EXPIRES ON </h5>
-                    <p>
-                      <strong className='expiresOn'>10/08/2020</strong>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p className='mt-4 largeScreenCard'>
-              * Please hover on the cards to see the price
-            </p>
-            <p className='mt-4 mobileCard'>
-              * Please click on the cards to see the price
-            </p>
-          </div>
+            </Link>
+          </Fragment>
+        );
+      }
+    }
+  }
+  return (
+    <div className='dashboard mt-5'>
+      <div className='container '>
+        <div className='col-md-12 col-sm-12 '>
+          <h1 className='mb-5'>Profile</h1>
+          {profileContent}
         </div>
+        <DashboardPolicies user={user} loading={loading} />
+        {isEmpty(user.offers) ? (
+          <div className='d-none'></div>
+        ) : (
+          <DashboardStatus status={status} loading={loading} />
+        )}
       </div>
     </div>
   );
 };
 
-export default Dashboard;
+Dashboard.propTypes = {
+  getCurrentUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+};
+const mapStateToProps = (state) => ({
+  user: state.user.User,
+  status: state.user.status,
+  loading: state.user.loading,
+  auth: state.auth,
+});
+export default connect(mapStateToProps, { getCurrentUser, getUserStatus })(
+  Dashboard
+);

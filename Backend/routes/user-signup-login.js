@@ -8,11 +8,13 @@ const validInfo = require('../middleware/validInfo');
 //Sign up
 router.post('/signup', validInfo, async (req, res, next) => {
   try {
-    let { name, password, gender, dob, email, address, state } = req.body;
+    let { name, email, password } = req.body;
+    console.log(req.body);
 
-    const user = await db.query('SELECT * FROM users WHERE email = $1', [
-      email,
-    ]);
+    const user = await db.query(
+      `SELECT * FROM public."user" WHERE email = $1`,
+      [email]
+    );
     if (user.rows.length !== 0) {
       return res
         .status(401)
@@ -23,8 +25,8 @@ router.post('/signup', validInfo, async (req, res, next) => {
     const bcryptPassword = await bcrypt.hash(password, salt);
 
     const newUser = await db.query(
-      'INSERT INTO users (name, email, password, gender, dob, address, state) VALUES($1,$2,$3,$4,$5,$6,$7)  RETURNING *',
-      [name, email, bcryptPassword, gender, dob, address, state]
+      `INSERT INTO public."user" (name, email, password) VALUES($1,$2,$3)  RETURNING *`,
+      [name, email, bcryptPassword]
     );
     const token = jwtGen(newUser.rows[0].id);
     res
@@ -40,7 +42,7 @@ router.post('/login', validInfo, async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const user = await db.query(
-      'SELECT * FROM users WHERE email = $1 LIMIT 1',
+      `SELECT * FROM public."user" WHERE email = $1 LIMIT 1`,
       [email]
     );
     if (user.rows.length === 0) {
