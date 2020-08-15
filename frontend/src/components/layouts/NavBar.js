@@ -1,11 +1,67 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../../actions/authActions';
+import { clearCurrentUser } from '../../actions/userActions';
 
-const NavBar = () => {
+const NavBar = ({ logoutUser, auth, clearCurrentUser }) => {
+  const onLogoutClick = (e) => {
+    e.preventDefault();
+    clearCurrentUser();
+    logoutUser();
+  };
+
+  const { isAuthenticated } = auth;
+
+  const guestLinks = (
+    <Fragment>
+      <li className='nav-item mr-4'>
+        <Link className='nav-link text-dark' to='#'>
+          +234-000-500-606
+        </Link>
+      </li>
+      <li className='nav-item mr-4'>
+        <Link className='nav-link text-dark' to='/signin'>
+          Sign in
+        </Link>
+      </li>
+      <li className='nav-item mr-4'>
+        <Link className='nav-link text-dark' to='/signup'>
+          Sign up
+        </Link>
+      </li>
+    </Fragment>
+  );
+
+  const authLinks = (
+    <Fragment>
+      <li className='nav-item mr-4'>
+        <Link className='nav-link text-dark' to='#'>
+          +234-000-500-606
+        </Link>
+      </li>
+      <li className='nav-item mr-4'>
+        <Link className='nav-link text-dark' to='/dashboard'>
+          My Account
+        </Link>
+      </li>
+      <li className='nav-item mr-4'>
+        <Link
+          className='nav-link text-dark'
+          to='/sigin'
+          onClick={onLogoutClick}
+        >
+          Logout
+        </Link>
+      </li>
+    </Fragment>
+  );
   return (
     <nav className='navbar navbar-expand-lg navbar-light  '>
-      <a className='navbar-brand logo' href='#'>
+      <Link className='navbar-brand logo' to='/'>
         Ai
-      </a>
+      </Link>
       <button
         className='navbar-toggler'
         type='button'
@@ -21,57 +77,48 @@ const NavBar = () => {
       <div className='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul className='navbar-nav mr-auto '>
           <li className='nav-item active'>
-            <a className='nav-link text-dark' href='#'>
+            <Link className='nav-link text-dark' to='/'>
               Home <span className='sr-only'>(current)</span>
-            </a>
+            </Link>
           </li>
           <li className='nav-item ml-4'>
-            <a className='nav-link text-dark' href='#'>
+            <Link className='nav-link text-dark' to='/insure'>
               Insure
-            </a>
+            </Link>
           </li>
           <li className='nav-item ml-4'>
-            <a className='nav-link text-dark' href='#'>
+            <Link className='nav-link text-dark' to='/claims'>
               claims
-            </a>
+            </Link>
           </li>
           <li className='nav-item ml-4'>
-            <a className='nav-link text-dark' href='#'>
-              Advice
-            </a>
+            <Link className='nav-link text-dark' to='/products'>
+              Products
+            </Link>
           </li>
           <li className='nav-item ml-4'>
-            <a className='nav-link text-dark' href='#'>
+            <Link className='nav-link text-dark' to='/aboutus'>
               About us
-            </a>
+            </Link>
           </li>
         </ul>
         <ul className='navbar-nav ml-auto'>
-          <li className='nav-item mr-4'>
-            <a className='nav-link text-dark' href='#'>
-              +234-000-500-606
-            </a>
-          </li>
-          <li className='nav-item mr-4'>
-            <a className='nav-link text-dark' href='#'>
-              Sign in
-            </a>
-          </li>
-          <li className='nav-item mr-4'>
-            <a className='nav-link text-dark' href='#'>
-              Sign up
-            </a>
-          </li>
-          {/* <li className='nav-item mr-4'>
-            <SearchIcon />
-          </li>
-          <li className='nav-item mr-4'>
-            <GlobeIcon />
-          </li> */}
+          {isAuthenticated ? authLinks : guestLinks}
         </ul>
       </div>
     </nav>
   );
 };
 
-export default NavBar;
+NavBar.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logoutUser, clearCurrentUser })(
+  NavBar
+);

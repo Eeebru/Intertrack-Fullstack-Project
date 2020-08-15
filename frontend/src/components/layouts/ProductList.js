@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import CrossIcon from '../../icons/crossIcon';
 import CarIcon from '../../icons/carIcon';
 import HouseIcon from '../../icons/houseIcon';
@@ -31,7 +32,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom '>Starting from</p>
               <h4 className='month '>$5/month</h4>
-              <button className='quote btn btn-lg btn-block '>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
             <div className=' text-center productCard col-md-3 '>
               <CarIcon />
@@ -40,7 +43,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom'>Starting from</p>
               <h4 className='month'>$3/month</h4>
-              <button className='quote btn btn-lg btn-block'>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
             <div className=' text-center productCard col-md-3 '>
               <HouseIcon />
@@ -49,7 +54,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom'>Starting from</p>
               <h4 className='month'>$10/month</h4>
-              <button className='quote btn btn-lg btn-block'>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
           </div>
 
@@ -61,7 +68,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom '>Starting from</p>
               <h4 className='month '>$15/month</h4>
-              <button className='quote btn btn-lg btn-block'>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
             <div className=' text-center productCard col-md-3'>
               <BookIcon />
@@ -70,7 +79,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom'>Starting from</p>
               <h4 className='month'>$10/month</h4>
-              <button className='quote btn btn-lg btn-block'>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
             <div className=' text-center productCard col-md-3'>
               <AirplaneIcon />
@@ -79,7 +90,9 @@ const ProductList = () => {
               </h3>
               <p className='startingFrom'>Starting from</p>
               <h4 className='month'>$30/trip</h4>
-              <button className='quote btn btn-lg btn-block'>Quote</button>
+              <Link className='quote btn btn-lg btn-block ' to='/insure'>
+                Quote
+              </Link>
             </div>
           </div>
         </div>

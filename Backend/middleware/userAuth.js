@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 module.exports = async (req, res, next) => {
   try {
     //the token
+
     const jwtToken = req.headers.authorization.split(' ')[1];
     if (!jwtToken) {
       return res.status(403).json({ msg: 'Authorization Denied' });
