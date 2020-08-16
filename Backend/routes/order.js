@@ -50,13 +50,16 @@ router.post("/orderproduct", auth, async (req, res) => {
 			const checkProductAvail = function () {
         let val;
           for (let i = 0; i < userOrders.length; i++) {
-            if (userOrders[i].product_id == product_id) {
-              val = 'true';
-            }
+            if (
+							userOrders[i].product_id == product_id &&
+							userOrders[i].expiry_date.getMonth() >= new Date().getMonth()
+						) {
+							val = "true";
+						}
           }
           return val;
 			};
-			const checkValue = checkProductAvail();
+      const checkValue = checkProductAvail();
 			if (checkValue === "true") {
 				return res.status(401).json({ message: "You already have this plan" });
 			} else if (checkValue != 'true') {
