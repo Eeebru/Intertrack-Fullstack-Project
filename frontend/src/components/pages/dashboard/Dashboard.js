@@ -44,7 +44,7 @@ const Dashboard = ({
             <Link
               to='/edit_profile'
               type='button'
-              className='editBtn btn my-3 '
+              className='editBtn btn mt-5 '
             >
               Edit Profile
             </Link>
@@ -56,30 +56,31 @@ const Dashboard = ({
             <div className='profile d-flex flex-md-row flex-sm-column flex-xs-column'>
               <div className='profileLeft'>
                 <h2>
-                  <strong>{userObj.name}</strong>
-                  <p>{userObj.job}</p>
+                  <strong className='name'>{userObj.name}</strong>
+                  <p className='job'>{userObj.job}</p>
                 </h2>
 
-                <h5>Home Address</h5>
-                <p>{userObj.address}</p>
+                <h5 className='mt-4'>Home Address</h5>
+                <p className='address '>{userObj.address}</p>
                 <h5>Residential Status</h5>
-                <p>{userObj.residential_status}</p>
+                <p className='resSta'>{userObj.residential_status}</p>
               </div>
               <div className='profileRight'>
-                <div>
-                  <h4>
+                <h2 className='mb-4'>
+                  <p className='date'>
                     <Moment format='YYYY/MM/DD'>{userObj.dob}</Moment>
-                  </h4>
-                  <p>{userObj.email}</p>
-                </div>
-                <h5>Dependants</h5>
+                  </p>
+                  <p className='email'>{userObj.email}</p>
+                </h2>
+
+                <h5 className='mt-4 depen'>Dependants</h5>
                 <p>{userObj.dependants}</p>
               </div>
             </div>
             <Link
               to='/edit_profile'
               type='button'
-              className='editBtn btn my-3 '
+              className='editBtn btn mt-4 '
             >
               Edit Profile
             </Link>
@@ -92,7 +93,7 @@ const Dashboard = ({
     <div className='dashboard mt-5'>
       <div className='container '>
         <div className='col-md-12 col-sm-12 '>
-          <h1 className='mb-5'>Profile</h1>
+          <h1 className='mb-5 header'>Profile</h1>
           {profileContent}
         </div>
         <DashboardPolicies user={user} loading={loading} />

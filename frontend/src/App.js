@@ -23,6 +23,7 @@ import Signin from './components/auth/Signin';
 import Dashboard from './components/pages/dashboard/Dashboard';
 import EditDashboard from './components/pages/dashboard/EditDashboard';
 import Products from './components/pages/products/Products';
+import Claims from './components/pages/Claims';
 
 //Check for token
 if (localStorage.jwtToken) {
@@ -57,6 +58,7 @@ const App = () => {
           <Route exact path='/aboutus' component={Aboutus} />
           <Route exact path='/signin' component={Signin} />
           <Route exact path='/signup' component={Signup} />
+          <Route exact path='/claims' component={Claims} />
           <Switch>
             <PrivateRoute exact path='/products' component={Products} />
           </Switch>
@@ -70,6 +72,7 @@ const App = () => {
               component={EditDashboard}
             />
           </Switch>
+
           <Footer />
         </div>
       </Router>

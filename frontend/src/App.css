@@ -23,7 +23,7 @@ nav {
 }
 .logo {
   /* width: 149px; */
-  display: none;
+  /* display: none; */
   height: 54.5px;
   font-family: 'Pacifico' !important;
   font-size: 30px;
@@ -36,13 +36,16 @@ nav {
   color: #10d6de !important;
 }
 
+.Ai {
+  display: none;
+}
 .motto,
 .productHeader,
 .infoHeader {
   font-family: 'Gilroy' !important;
   font-size: 30px;
   font-weight: bolder;
-
+  height: 28.5px;
   text-align: center;
   color: #141414;
 }
@@ -67,7 +70,8 @@ nav {
 }
 .productCard {
   /* width: 199px; */
-  height: 300px;
+  width: 300px;
+  height: 320px;
   border: solid 0.5px #707070ab;
   border-radius: 20px;
 }
@@ -89,7 +93,7 @@ nav {
   height: 13.5px;
   font-family: 'Gilroy' !important;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: bold;
   font-stretch: normal;
   font-style: normal;
   line-height: 1.4;
@@ -144,7 +148,7 @@ nav {
 }
 .infoBody {
   font-family: 'Gilroy';
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -166,11 +170,19 @@ nav {
   text-align: center;
   color: #ffffff;
 }
+
+.insure h5 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.insure h5 {
+  margin-bottom: 20px;
+}
 .insureBtn,
 .insureContactBtn,
 .insureUpdateBtn {
   margin-left: 60px;
-
+  /* height: 12.5px; */
   border-radius: 10px;
   background-color: #10de9f;
 
@@ -181,12 +193,79 @@ nav {
   color: #ffffff;
 }
 
+.insureContactBtn,
+.insureUpdateBtn {
+  /* margin-left: 60px; */
+  /* height: 12.5px; */
+  border-radius: 10px;
+  background-color: #10de9f;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  text-align: center;
+  color: #ffffff;
+}
+/* .insureContactBtn {
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: 60px;
+ 
+  border-radius: 10px;
+  background-color: #10de9f;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  text-align: center;
+  color: #ffffff;
+} */
 .insureImages {
   width: 230px;
 }
 
 .imagesColumn {
   float: right;
+}
+
+.claims {
+  width: 100%;
+  height: 80vh;
+  background-image: url('../src/img/Group_608 (1).png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.claimBtnA {
+  display: block;
+}
+.claimsBtn {
+  color: #ffffff;
+  /* padding-left: 30px;
+  padding-right: 30px; */
+  font-weight: bolder;
+
+  text-align: center;
+  border-radius: 10px;
+  background-color: #10de9f;
+}
+
+.claimBtnB {
+  display: none;
+}
+
+.claimStats {
+  font-size: 75px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: #141414;
+}
+
+.claimP {
+  font-size: 20px;
 }
 .aboutUs p {
   font-size: 19px;
@@ -211,6 +290,7 @@ nav {
 .dashboard {
   font-size: 2rem;
 }
+
 .dashboard h1 {
   width: 92px;
   height: 28.5px;
@@ -220,9 +300,7 @@ nav {
   text-align: left;
   font-weight: bolder;
 }
-/* .profile {
-  font-size: large;
-} */
+
 .profile h2 {
   font-weight: 900;
   font-size: 23px;
@@ -243,19 +321,55 @@ nav {
   margin-top: 20px;
   font-weight: 900;
 }
-.profileRight h4 {
-  font-size: 15px;
-}
+
 .profileRight {
   margin-left: 100px;
+  margin-top: 8px;
 }
 .dashboard p {
   /* font-weight: bold; */
   font-weight: 200;
   font-size: 15px;
 }
+
+.name {
+  height: 15px;
+
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+}
+.job,
+.email,
+.date {
+  height: 9.5px;
+
+  font-size: 10px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}
+.depen {
+  margin-top: 3px;
+}
+
+.address,
+.resSta {
+  font-size: 15px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: left;
+}
 .editBtn {
-  width: 165px;
+  width: 158px;
   height: 36px;
   border-radius: 10px;
   background-color: #10de9f;
@@ -321,7 +435,7 @@ nav {
 .expiresOn {
   font-weight: bold;
   font-size: 20px;
-  color: #ff8b8b;
+  /* color: #ff8b8b; */
 }
 .largeScreenCard {
   display: block;
@@ -351,10 +465,8 @@ nav {
 }
 
 .editProfileBtn {
-  font-size: 15px;
-  font-weight: bolder;
   color: #ffffff;
-  /* width: 100px; */
+  width: 250px;
   height: 49px;
   border-radius: 10px;
   background-color: #10de9f;
@@ -363,9 +475,18 @@ nav {
 .signUp {
   height: 66vh;
 }
+.signIn h1,
+.signUp h1 {
+  font-size: 30px;
+  font-weight: bolder;
 
+  /* line-height: 1.42;
+  letter-spacing: normal; */
+
+  color: #141414;
+}
 .authBtn {
-  width: 300px;
+  width: 250px;
   height: 49px;
   color: #10de9f;
   border-radius: 10px;
@@ -401,11 +522,10 @@ nav {
   font-family: 'Gilroy' !important;
   font-size: 20px;
   font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.43;
-  letter-spacing: normal;
+  /* width: 250px; */
+  height: 49px;
 }
+
 .footer {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -486,6 +606,30 @@ nav {
     background-repeat: no-repeat;
     background-position: bottom;
   }
+  .claims {
+    width: 100%;
+    height: 30vh;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: bottom; */
+  }
+  .claimsBtn {
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .claimBtnA {
+    display: none;
+  }
+  .claimBtnB {
+    display: block;
+  }
+  .claimStats {
+    font-size: 45px;
+  }
+  .claimP {
+    margin-bottom: 15px;
+  }
   .logo {
     font-size: 20px;
     font-weight: bold;
@@ -494,16 +638,29 @@ nav {
     color: #10d6de !important;
   }
 
+  .Ai {
+    display: block;
+  }
   .motto,
   .productHeader,
   .infoHeader {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bolder;
 
     text-align: center;
     color: #141414;
   }
 
+  .productList {
+    margin-top: 0;
+    display: flex !important;
+    justify-content: space-evenly !important;
+  }
+  .productMobile {
+    margin-top: 50px;
+    display: flex !important;
+    justify-content: space-evenly !important;
+  }
   .saying,
   .productText,
   .infoText {
@@ -518,6 +675,11 @@ nav {
   .info p {
     font-size: 15px;
   }
+
+  .infoBody {
+    text-align: center;
+  }
+
   .infoImage {
     width: 300px;
   }
@@ -527,25 +689,32 @@ nav {
     text-align: center;
     color: #141414;
   }
+  .infoBtn {
+    margin-left: 0;
+  }
   .productCard {
     width: 65%;
-    height: 280px;
+    height: 300px;
     margin-bottom: 12px;
     border: solid 0.5px #707070ab;
     border-radius: 20px;
   }
 
-  .insure h2 {
+  .products h1 {
     font-size: 1.5rem;
-    font-weight: bold;
+    font-weight: bolder;
+  }
+  .insure h1 {
+    font-size: 1.5rem;
+    font-weight: bolder;
   }
   .insure h3 {
     font-size: 1.3rem;
   }
 
   .insure h5 {
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 1.2rem;
+    font-weight: bolder;
   }
   .insure h4 {
     font-size: 1rem;
@@ -578,7 +747,7 @@ nav {
 
   .aboutUsBtn {
     position: relative;
-    left: 35%;
+    left: 28%;
     border-radius: 10px;
     background-color: #10de9f;
     font-size: 18px;
@@ -675,12 +844,19 @@ nav {
   .signUp h2 {
     font-size: 1.5rem;
   }
+  .editDashboard h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
   .editDashboard {
     font-size: 15px;
     margin-bottom: 40px;
   }
   .editProfileBtn {
-    width: 325px;
+    width: 270px;
+  }
+  .fakeLabelA {
+    margin-top: 10px;
   }
   .footer {
     margin-top: 20px;

@@ -59,7 +59,7 @@ const NavBar = ({ logoutUser, auth, clearCurrentUser }) => {
   );
   return (
     <nav className='navbar navbar-expand-lg navbar-light  '>
-      <Link className='navbar-brand logo' to='/'>
+      <Link className='navbar-brand logo Ai' to='/'>
         Ai
       </Link>
       <button

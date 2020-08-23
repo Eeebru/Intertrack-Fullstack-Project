@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
+import { Alert } from 'react-bootstrap';
 import Peach from '../../img/hian-oliveira-n_L_ppO4QtY-unsplash@3x.png';
 
 const Signup = ({ registerUser, errors, isAuthenticated }) => {
@@ -12,6 +13,7 @@ const Signup = ({ registerUser, errors, isAuthenticated }) => {
     password: '',
     confirmPassword: '',
   });
+  const [showMessage, setShowMessage] = useState(true);
   const history = useHistory();
   const { name, email, password, confirmPassword } = input;
   useEffect(() => {
@@ -36,10 +38,23 @@ const Signup = ({ registerUser, errors, isAuthenticated }) => {
     <div className='signUp'>
       <div className='container  mt-5'>
         <div className='text-center mt-5'>
-          <img src={Peach} alt='Peach' className='peach' />
-          <h2>Hey! I’m Peach.</h2>
+          <img src={Peach} alt='Peach' className='peach mb-3' />
+          <h2 className='mb-3'>You’re Signing Up</h2>
         </div>
-        <h1 className='text-center'>Please, input your details here</h1>
+        <h1 className='text-center'>Help me get to know you better</h1>
+        {Object.keys(errors).length > 0 ? (
+          <div className='text-center'>
+            <Alert
+              show={showMessage}
+              variant='danger'
+              transition={false}
+              dismissible
+              onClose={() => setShowMessage(false)}
+            >
+              {errors.message}
+            </Alert>
+          </div>
+        ) : null}
         <div className='row mt-md-5 '>
           <div className='col-md-10 col-lg-8 m-auto'>
             <form onSubmit={onSubmit} className='text-center'>
@@ -94,7 +109,7 @@ const Signup = ({ registerUser, errors, isAuthenticated }) => {
                 <input
                   type='submit'
                   value='Sign Up'
-                  className='btn btn-lg authBtn '
+                  className='btn btn-lg authBtn mt-5'
                 />
               </div>
             </form>

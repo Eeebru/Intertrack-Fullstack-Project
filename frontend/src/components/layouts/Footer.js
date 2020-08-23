@@ -13,11 +13,11 @@ const Footer = () => {
       <div className='footerTop mt-4 mt-sm-5'>
         <div className='followUs '>
           <h6 className='mb-4'>FOLLOW US</h6>
-          <InstagramIcon />
-          <FacebookIcon />
-          <TwitterIcon />
-          <YoutubeIcon />
-          <MediumIcon />
+          <InstagramIcon className='mr-4' />
+          <FacebookIcon className='mr-4' />
+          <TwitterIcon className='mr-4' />
+          <YoutubeIcon className='mr-4' />
+          <MediumIcon className='mr-4' />
         </div>
 
         <div className='getOurApp'>

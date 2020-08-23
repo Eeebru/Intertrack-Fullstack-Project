@@ -9,11 +9,11 @@ import Image8 from '../../img/travel.png';
 const Insure = () => {
   return (
     <section className='insure mt-4'>
-      <h2 className='text-center'>
+      <h1 className='text-center mt-5 mb-5'>
         Smart step to security,
         <br />
         better step to reliability
-      </h2>
+      </h1>
       <div className='container mt-5'>
         <div className='row  '>
           <div className='col-md-6 col-sm-12 my-4'>
@@ -29,7 +29,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image3} alt='' className='insureImages' />
+              <img src={Image3} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3 d-flex'
@@ -53,7 +53,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image4} alt='' className='insureImages' />
+              <img src={Image4} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3 d-flex'
@@ -78,7 +78,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image5} alt='' className='insureImages' />
+              <img src={Image5} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3 d-flex'
@@ -103,7 +103,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image6} alt='' className='insureImages' />
+              <img src={Image6} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3 d-flex'
@@ -113,7 +113,7 @@ const Insure = () => {
             </div>
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
-            <h5>Education Insurance</h5>
+            <h5>Study Insurance</h5>
             <h3>
               We are aware an investment in your child’s education pays the best
               interest.
@@ -128,7 +128,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image7} alt='' className='insureImages' />
+              <img src={Image7} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3  d-flex'
@@ -152,7 +152,7 @@ const Insure = () => {
           </div>
           <div className='col-md-6 col-sm-12 my-4'>
             <div className='float-md-right'>
-              <img src={Image8} alt='' className='insureImages' />
+              <img src={Image8} alt='' className='insureImages mt-5' />
               <button
                 type='button'
                 className='insureBtn btn btn-lg mt-3 d-flex'
@@ -163,7 +163,7 @@ const Insure = () => {
           </div>
         </div>
         <div className='text-center mt-5'>
-          <h4>
+          <h4 className='ml-md-5'>
             Do you want to update or renew your
             <br /> current plan?
           </h4>
@@ -172,11 +172,11 @@ const Insure = () => {
           </button>
         </div>
         <div className='text-center mt-5 mb-md-5'>
-          <h4>
+          <h4 className='ml-md-5'>
             Do you know our products are
             <br /> customisable?
           </h4>
-          <button type='button' className='insureContactBtn btn btn-lg mt-3 '>
+          <button type='button' className='insureContactBtn btn btn-lg mt-3  '>
             Contact Us
           </button>
         </div>

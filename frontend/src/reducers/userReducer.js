@@ -30,6 +30,7 @@ export default function (state = initialState, action) {
         status: action.payload,
         loading: false,
       };
+
     case CLEAR_CURRENT_USER:
       return {
         ...state,
