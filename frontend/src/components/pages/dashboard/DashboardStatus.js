@@ -31,8 +31,8 @@ const DashboardStatus = ({ status, loading }) => {
   }
   return (
     <Fragment>
-      <div className='col-md-12 col-sm-12  policiesStatus'>
-        <h1 className='my-4 '> Status</h1>
+      <div className='col-md-12 col-sm-12 mt-5 policiesStatus'>
+        <h1 className='my-4 mb-5 m'> Status</h1>
         <div className='d-flex flex-md-row flex-sm-column flex-md-wrap '>
           {statusContent}
         </div>

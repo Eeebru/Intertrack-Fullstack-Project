@@ -1,5 +1,6 @@
 import React from 'react';
 import Image9 from '../../img/aboutus.png';
+import { Link } from 'react-router-dom';
 
 const Aboutus = () => {
   return (
@@ -16,12 +17,14 @@ const Aboutus = () => {
         </p>
         <img src={Image9} alt='' className='aboutUsImage mb-4' />
         <div>
-          <button
-            type='button'
-            className='aboutUsBtn btn btn-lg d-sm-block d-md-flex mb-md-4'
-          >
-            Join Us
-          </button>
+          <Link to='/signup'>
+            <button
+              type='button'
+              className='aboutUsBtn btn btn-lg  px-5  d-sm-block d-md-flex mb-md-4'
+            >
+              Join Us
+            </button>
+          </Link>
         </div>
       </div>
     </section>

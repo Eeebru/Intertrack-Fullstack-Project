@@ -8,8 +8,16 @@ import FireIcon from '../../../icons/fireIcon';
 import BookIcon from '../../../icons/bookIcon';
 import AirplaneIcon from '../../../icons/airplaneIcon';
 
-const ProductsList = ({ product, status }) => {
+const ProductsList = ({
+  product,
+  status,
+  buyProduct,
+  offers,
+  verify,
+  verified,
+}) => {
   const { userOrder } = status;
+
   let logo;
   if (product.name === 'Life Insurance') {
     logo = <CrossIcon />;
@@ -27,14 +35,20 @@ const ProductsList = ({ product, status }) => {
   return (
     <div className=' text-center productListCard col-md-3 m-4'>
       <div className='mb-4'>{logo}</div>
-      <h3 className='mb-4'>{product.name}</h3>
+      <h3 className='mb-4 contentHeader'>{product.name}</h3>
 
-      <h4>
+      <h4 className='month'>
         ${product.product_price}/
         {product.name === 'Travel Insurance' ? 'Trip' : 'Month'}
       </h4>
 
-      <BuyButton product={product} userOrder={userOrder} />
+      <BuyButton
+        product={product}
+        userOrder={userOrder}
+        buyProduct={buyProduct}
+        verify={verify}
+        verified={verified}
+      />
     </div>
   );
 };

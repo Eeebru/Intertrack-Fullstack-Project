@@ -21,7 +21,17 @@ const DashboardStatusListTable = ({ order }) => {
       <td>
         <Moment format='YYYY/MM/DD'>{order.expiry_date}</Moment>
       </td>
-      <td>{order.is_active ? 'Active' : 'Expired'}</td>
+      <td>
+        {order.is_active ? (
+          <span style={{ color: '#10de9f' }}>
+            <strong>Active</strong>
+          </span>
+        ) : (
+          <span style={{ color: '#ff8b8b' }}>
+            <strong>Expired</strong>
+          </span>
+        )}
+      </td>
     </tr>
   );
 };

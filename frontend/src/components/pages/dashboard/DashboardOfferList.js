@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import WhiteCrossIcon from '../../../icons/whiteCrossIcon';
 import WhiteHouseIcon from '../../../icons/whiteHouseIcon';
-import WhitebookIcon from '../../../icons/whitebookIcon';
-import WhitecarIcon from '../../../icons/whitecarIcon';
-import WhitefireIcon from '../../../icons/whitefireIcon';
-import WhiteplaneIcon from '../../../icons/whiteplaneIcon';
+import WhiteBookIcon from '../../../icons/whitebookIcon';
+import WhiteCarIcon from '../../../icons/whitecarIcon';
+import WhiteFireIcon from '../../../icons/whitefireIcon';
+import WhiteAirplaneIcon from '../../../icons/whiteplaneIcon';
 const DashboardOfferList = ({ offer }) => {
   let logo;
   if (offer.name === 'Life Insurance') {
@@ -12,31 +12,38 @@ const DashboardOfferList = ({ offer }) => {
   } else if (offer.name === 'Home Insurance') {
     logo = <WhiteHouseIcon />;
   } else if (offer.name === 'Study Insurance') {
-    logo = <WhitebookIcon />;
+    logo = <WhiteBookIcon />;
   } else if (offer.name === 'Motor Insurance') {
-    logo = <WhitecarIcon />;
+    logo = <WhiteCarIcon />;
   } else if (offer.name === 'Fire Insurance') {
-    logo = <WhitefireIcon />;
+    logo = <WhiteFireIcon />;
   } else if (offer.name === 'Travel Insurance') {
-    logo = <WhiteplaneIcon />;
+    logo = <WhiteAirplaneIcon />;
   }
   return (
     <Fragment>
-      <div className='card flipCard spacer '>
+      <div className='card flipCard spacer  mt-3 ml-3'>
         <div className='flipCardInner'>
           <div className='flipCardFront'>
             {logo}
             <h2 className='card-title mt-md-4' style={{ fontWeight: 'bolder' }}>
               {offer.name}
             </h2>
-            <p className='card-text mt-md-5'>{offer.product_description}</p>
+            <p className='card-text mt-md-5 mx-3'>
+              {offer.product_description}
+            </p>
           </div>
           <div className='flipCardBack text-center'>
-            <div className='cardPrice'>${offer.product_price}/month</div>
+            <div className='cardPrice'>
+              ${offer.product_price}/
+              {offer.name === 'Travel Insurance' ? 'Trip' : 'Month'}
+            </div>
 
             <p>
               <strong className='expiresOn'>
-                All plans are valid for a month except renewned
+                All plans are valid for{' '}
+                {offer.name === 'Travel Insurance' ? 'a trip ' : 'a month'}{' '}
+                except renewned
               </strong>
             </p>
           </div>

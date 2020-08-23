@@ -22,10 +22,22 @@ const db = require('../db');
 //   }
 // });
 
-//get products
+//get all products
 router.get('/products', async (req, res) => {
   try {
     const prod = await db.query('SELECT * FROM public.product');
+    res.status(200).json(prod.rows);
+  } catch (error) {
+    console.log(error);
+  }
+});
+router.get('/products/:product_id', async (req, res) => {
+  try {
+    const { product_id } = req.params;
+    console.log(product_id);
+    const prod = await db.query('SELECT * FROM public.product WHERE id=$1', [
+      product_id,
+    ]);
     res.status(200).json(prod.rows);
   } catch (error) {
     console.log(error);

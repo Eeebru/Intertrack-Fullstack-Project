@@ -60,6 +60,7 @@ const EditDashboard = ({
   };
   return (
     <div className='container editDashboard mt-5'>
+      <h1 className='text-center mb-5'>Edit Your Profile</h1>
       <div className='row'>
         <div className='col-md-10 mx-auto'>
           <form onSubmit={onSubmit}>
@@ -76,7 +77,9 @@ const EditDashboard = ({
                 />
               </div>
               <div className='col-sm-6 '>
-                <label htmlFor='email'>Email</label>
+                <label htmlFor='email' className='fakeLabelA'>
+                  Email
+                </label>
                 <input
                   type='email'
                   className='form-control'
@@ -100,7 +103,9 @@ const EditDashboard = ({
                 />
               </div>
               <div className='col-sm-6'>
-                <label htmlFor='dob '>Date of Birth</label>
+                <label htmlFor='dob ' className='fakeLabelA'>
+                  Date of Birth
+                </label>
                 <input
                   type='date'
                   className='form-control'
@@ -123,7 +128,9 @@ const EditDashboard = ({
                 />
               </div>
               <div className='col-sm-6'>
-                <label htmlFor='gender'>Gender</label>
+                <label htmlFor='gender' className='fakeLabelA'>
+                  Gender
+                </label>
                 <input
                   type='text'
                   className='form-control'
@@ -147,7 +154,9 @@ const EditDashboard = ({
                 />
               </div>
               <div className='col-sm-6'>
-                <label htmlFor='dependants'>Dependants</label>
+                <label htmlFor='dependants ' className='fakeLabelA'>
+                  Dependants
+                </label>
                 <input
                   type='text'
                   className='form-control'

@@ -75,4 +75,42 @@ router.post('/orderproduct', auth, async (req, res) => {
   }
 });
 
+router.post('/verify', auth, async (req, res) => {
+  //only product_id from req.body because it's the only one that we would be getting from the product data, when were sending from front
+  try {
+    const { product_id } = req.body;
+
+    const uniqueOrder = await db.query(
+      `SELECT * FROM public."order" WHERE user_id = $1`,
+      [req.id]
+    );
+    const userOrders = uniqueOrder.rows;
+
+    if (userOrders.length > 0) {
+      const checkProductAvail = function () {
+        let val;
+        for (let i = 0; i < userOrders.length; i++) {
+          if (
+            userOrders[i].product_id == product_id &&
+            userOrders[i].expiry_date.getMonth() >= new Date().getMonth()
+          ) {
+            val = 'true';
+          }
+        }
+        return val;
+      };
+      const checkValue = checkProductAvail();
+      if (checkValue === 'true') {
+        return res
+          .status(200)
+          .json({ message: 'You already have this plan', alreadyHav: true });
+      } else {
+        return res.status(200).json({ message: 'Good', alreadyHav: false });
+      }
+    }
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

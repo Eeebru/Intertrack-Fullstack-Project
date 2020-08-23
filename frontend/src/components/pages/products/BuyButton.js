@@ -2,36 +2,47 @@ import React, { Fragment, useState } from 'react';
 // import isEmpty from '../../../validation/is-empty';
 import { Button } from 'react-bootstrap';
 import BuyModal from './BuyModal';
-const BuyButton = ({ product, userOrder }) => {
+const BuyButton = ({ product, userOrder, buyProduct, verify, verified }) => {
   const [show, setShow] = useState(false);
+  const { alreadyHav } = verified;
   const handleClose = () => {
     setShow(false);
+  };
+
+  const check = (e) => {
+    e.preventDefault();
+
+    const checkId = {
+      product_id: product.id,
+    };
+
+    verify(checkId);
+    // const { alreadyHav } = verified;
+    // console.log(alreadyHav);
   };
   const handleShow = () => {
     setShow(true);
   };
-
-  let classes = 'buy btn btn-lg btn-block ';
-  // if (userOrder === 'undefined') {
-  //   return classes;
-  // } else if (
-  //   userOrder.product_id === product.id &&
-  //   userOrder.is_active === true
-  // ) {
-  //   classes += ' disabled';
-  // }
-
   return (
     <Fragment>
-      <Button variant='none' onClick={handleShow} className={classes}>
-        Buy
-      </Button>
-      <BuyModal
-        show={show}
-        product={product}
-        handleClose={handleClose}
-        handleShow={handleShow}
-      />
+      <form onSubmit={check}>
+        <Button
+          variant='none'
+          onClick={handleShow}
+          className='buy  btn btn-lg btn-block '
+          type='submit'
+        >
+          Get Details
+        </Button>
+        <BuyModal
+          show={show}
+          product={product}
+          buyProduct={buyProduct}
+          handleClose={handleClose}
+          handleShow={handleShow}
+          verifyProd={alreadyHav}
+        />
+      </form>
     </Fragment>
   );
 };

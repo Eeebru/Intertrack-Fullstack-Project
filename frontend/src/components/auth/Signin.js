@@ -3,6 +3,8 @@ import { useHistory, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { signinUser } from '../../actions/authActions';
+import { Alert } from 'react-bootstrap';
+
 import Peach from '../../img/hian-oliveira-n_L_ppO4QtY-unsplash@3x.png';
 
 const Signin = ({ signinUser, errors, isAuthenticated }) => {
@@ -10,7 +12,7 @@ const Signin = ({ signinUser, errors, isAuthenticated }) => {
     email: '',
     password: '',
   });
-
+  const [showMessage, setShowMessage] = useState(true);
   const history = useHistory();
   useEffect(() => {
     if (isAuthenticated) {
@@ -18,6 +20,11 @@ const Signin = ({ signinUser, errors, isAuthenticated }) => {
     }
   });
 
+  // if (Object.keys(errors).length > 0) {
+  //   setShowMessage(true);
+  // } else {
+  //   setShowMessage(false);
+  // }
   const { email, password } = input;
   const onChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -38,11 +45,23 @@ const Signin = ({ signinUser, errors, isAuthenticated }) => {
     <div className='signIn'>
       <div className='container'>
         <div className='text-center mt-5'>
-          <img src={Peach} alt='Peach' className='peach' />
-          <h2>Hey! I’m Peach.</h2>
+          <img src={Peach} alt='Peach' className='peach mb-3' />
+          <h2 className='mb-3'>Hey! I’m Peach.</h2>
         </div>
-        <h1 className='text-center'>Please, login here</h1>
-
+        <h1 className='text-center'>Enter your login details</h1>
+        {Object.keys(errors).length > 0 ? (
+          <div className='text-center'>
+            <Alert
+              show={showMessage}
+              variant='danger'
+              transition={false}
+              dismissible
+              onClose={() => setShowMessage(false)}
+            >
+              {errors.message}
+            </Alert>
+          </div>
+        ) : null}
         <div className='row mt-md-5  '>
           <div className='col-md-10 col-lg-8 m-auto '>
             <form onSubmit={onSubmit} className='text-center'>
@@ -73,7 +92,7 @@ const Signin = ({ signinUser, errors, isAuthenticated }) => {
                 <input
                   type='submit'
                   value='Login'
-                  className='authBtn btn btn-lg'
+                  className='authBtn btn btn-lg mt-5'
                 />
               </div>
             </form>

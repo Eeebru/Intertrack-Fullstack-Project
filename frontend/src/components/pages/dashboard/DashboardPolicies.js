@@ -7,7 +7,11 @@ import isEmpty from '../../../validation/is-empty';
 const DashboardPolicies = ({ user, loading }) => {
   let policies;
   if (user.offers === 'undefined' || loading) {
-    policies = <Spinner />;
+    policies = (
+      <div className='m-auto'>
+        <Spinner />
+      </div>
+    );
   } else if (isEmpty(user.offers)) {
     policies = (
       <div>
@@ -45,7 +49,7 @@ const DashboardPolicies = ({ user, loading }) => {
   return (
     <Fragment>
       <div className='col-md-12 col-sm-12  policies'>
-        <h1 className='my-4'>Policies</h1>
+        <h1 className='my-4  mt-5 mb-5 header'>Policies</h1>
         <div className='d-flex flex-md-row flex-sm-column flex-md-wrap policesControl'>
           {policies}
         </div>
