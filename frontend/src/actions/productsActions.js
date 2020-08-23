@@ -3,7 +3,7 @@ import { GET_PRODUCT, GET_PRODUCTS, GET_ERRORS, CHECK } from './types';
 import { setUserLoading } from './userActions';
 export const getProducts = () => (dispatch) => {
   axios
-    .get('http://localhost:5000/products')
+    .get('https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/products')
     .then((res) =>
       dispatch({
         type: GET_PRODUCTS,
@@ -20,7 +20,7 @@ export const getProducts = () => (dispatch) => {
 export const getProductById = ({ product_id }) => (dispatch) => {
   dispatch(setUserLoading());
   axios
-    .get(`http://localhost:5000/products/${product_id}`)
+    .get(`https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/products/${product_id}`)
     .then((res) =>
       dispatch({
         type: GET_PRODUCT,
@@ -39,7 +39,7 @@ export const buyProduct = (dataObj, history) => (dispatch) => {
   // const product = JSON.stringify(product_id);
   dispatch(setUserLoading());
   axios
-    .post(`http://localhost:5000/orderproduct`, dataObj)
+    .post(`https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/orderproduct`, dataObj)
     .then((res) => history.push('/dashboard'))
     .catch((err) =>
       dispatch({
@@ -52,7 +52,7 @@ export const buyProduct = (dataObj, history) => (dispatch) => {
 export const verify = (dataObj) => (dispatch) => {
   // const product = JSON.stringify(product_id);
   axios
-    .post(`http://localhost:5000/verify`, dataObj)
+    .post(`https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/verify`, dataObj)
     .then((res) =>
       dispatch({
         type: CHECK,

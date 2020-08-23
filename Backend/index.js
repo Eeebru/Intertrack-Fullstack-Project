@@ -10,7 +10,7 @@ app.use(morgan('tiny'));
 
 //The very root route
 app.get('/', (req, res) => {
-  res.send({ message: 'WELCOME APP IN DEVELOPMENT!!' });
+  res.send({ message: 'WELCOME!! Backend For Alles Insurance ' });
 });
 
 //signup and login routes
@@ -40,5 +40,5 @@ if (app.get('env') === 'development') {
 const PORT = process.env.APPPORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server Started at ${PORT}`);
+  console.log(`Server Started at 167.99.82.56:${PORT}`);
 });

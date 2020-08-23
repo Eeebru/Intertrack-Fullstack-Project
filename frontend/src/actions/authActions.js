@@ -5,7 +5,7 @@ import { SET_CURRENT_USER, GET_ERRORS, CURRENT_USER } from './types';
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post('http://localhost:5000/signup', userData)
+    .post('https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/signup', userData)
     .then((res) => history.push('/dashboard'))
     .catch((err) =>
       dispatch({
@@ -17,7 +17,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 
 export const signinUser = (userData) => (dispatch) => {
   axios
-    .post('http://localhost:5000/login', userData)
+    .post('https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/login', userData)
     .then((res) => {
       // Save to localStorage
       const { token } = res.data;

@@ -10,7 +10,7 @@ import {
 export const getCurrentUser = () => (dispatch) => {
   dispatch(setUserLoading());
   axios
-    .get('http://localhost:5000/user')
+    .get('https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/user')
     .then((res) =>
       dispatch({
         type: GET_USER,
@@ -27,7 +27,7 @@ export const getCurrentUser = () => (dispatch) => {
 export const getUserStatus = () => (dispatch) => {
   dispatch(setUserLoading());
   axios
-    .get('http://localhost:5000/orders')
+    .get('https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/orders')
     .then((res) =>
       dispatch({
         type: GET_USER_STATUS,
@@ -45,7 +45,7 @@ export const getUserStatus = () => (dispatch) => {
 export const updatedUser = (updatedData, history) => (dispatch) => {
   dispatch(setUserLoading());
   axios
-    .patch(`http://localhost:5000/user/${updatedData.id}`, updatedData)
+    .patch(`https://cors-anywhere.herokuapp.com/http://167.99.82.56:8000/user/${updatedData.id}`, updatedData)
     .then((res) => history.push('/dashboard'))
     .catch((err) =>
       dispatch({
