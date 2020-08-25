@@ -109,7 +109,7 @@ const Signup = ({ registerUser, errors, isAuthenticated }) => {
                 <input
                   type='submit'
                   value='Sign Up'
-                  className='btn btn-lg authBtn mt-5'
+                  className='btn btn-lg authBtn mb-5 mt-5'
                 />
               </div>
             </form>
