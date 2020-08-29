@@ -471,10 +471,13 @@ nav {
   border-radius: 10px;
   background-color: #10de9f;
 }
-.signIn,
-.signUp {
+.signIn {
   height: 66vh;
 }
+.signUp {
+  height: 80vh;
+}
+
 .signIn h1,
 .signUp h1 {
   font-size: 30px;
