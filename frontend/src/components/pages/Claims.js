@@ -31,17 +31,17 @@ const Claims = () => {
         <div className='container text-center mt-5'>
           <div className='row '>
             <div className='col-md-4 '>
-              <img src={image1} className='w-10' />
+              <img src={image1} className='w-10' alt='' />
               <h1 className='claimStats'>3sec</h1>
               <p className='claimP'>World record claim handling</p>
             </div>
             <div className='col-md-4'>
-              <img src={image} className='w-50 mt-md-3 mb-md-4' />
+              <img src={image} className='w-50 mt-md-3 mb-md-4' alt='' />
               <h1 className='claimStats'>+4.9</h1>
               <p className='claimP'>Claims rating online</p>
             </div>
             <div className='col-md-4 '>
-              <img src={image2} className='w-10 ' />
+              <img src={image2} className='w-10 ' alt='' />
               <h1 className='claimStats'>50%</h1>
               <p className='claimP'>Of claims handled instantly</p>
             </div>
