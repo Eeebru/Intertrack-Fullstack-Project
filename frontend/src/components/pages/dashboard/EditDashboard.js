@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { updatedUser, getCurrentUser } from '../../../actions/userActions';
-
+import SelectListGroup from '../../common/SelectListGroup';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -58,6 +58,25 @@ const EditDashboard = ({
     };
     updatedUser(updatedData, history);
   };
+
+  const genderOptions = [
+    { label: '* Select Gender', value: 0 },
+    { label: 'Female', value: 'Female' },
+    { label: 'Male', value: 'Male' },
+  ];
+  const resOptions = [
+    { label: '* Select Residential Status', value: 0 },
+    { label: 'Renting', value: 'Renting' },
+    { label: 'Own', value: 'Own' },
+  ];
+  const depOptions = [
+    { label: '* Select Number of Dependant', value: 0 },
+    { label: 'None', value: 'None' },
+    { label: 'One', value: 'One' },
+    { label: 'Two', value: 'Two' },
+    { label: 'Three', value: 'Three' },
+  ];
+
   return (
     <div className='container editDashboard mt-5'>
       <h1 className='text-center mb-5'>Edit Your Profile</h1>
@@ -131,39 +150,57 @@ const EditDashboard = ({
                 <label htmlFor='gender' className='fakeLabelA'>
                   Gender
                 </label>
-                <input
+                {/* <input
                   type='text'
                   className='form-control'
                   name='gender'
                   onChange={onChange}
                   value={gender}
                   placeholder='Male/Female'
+                /> */}
+                <SelectListGroup
+                  name='gender'
+                  value={gender}
+                  onChange={onChange}
+                  options={genderOptions}
                 />
               </div>
             </div>
             <div className='form-group row inputTwo'>
               <div className='col-sm-6'>
                 <label htmlFor='residential_status'>Residential Status</label>
-                <input
+                {/* <input
                   type='text'
                   className='form-control'
                   name='residential_status'
                   onChange={onChange}
                   value={residential_status}
                   placeholder='Renting or Owns a house'
+                /> */}
+                <SelectListGroup
+                  name='residential_status'
+                  value={residential_status}
+                  onChange={onChange}
+                  options={resOptions}
                 />
               </div>
               <div className='col-sm-6'>
                 <label htmlFor='dependants ' className='fakeLabelA'>
                   Dependants
                 </label>
-                <input
+                {/* <input
                   type='text'
                   className='form-control'
                   name='dependants'
                   onChange={onChange}
                   value={dependants}
                   placeholder='Number of dependants'
+                /> */}
+                <SelectListGroup
+                  name='dependants'
+                  value={dependants}
+                  onChange={onChange}
+                  options={depOptions}
                 />
               </div>
             </div>

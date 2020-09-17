@@ -46,6 +46,26 @@ const DashboardPolicies = ({ user, loading }) => {
       </Fragment>
     );
   }
+
+  let productBtn;
+  if (isEmpty(user.offers)) {
+    productBtn = (
+      <Link
+        to='/products'
+        type='button'
+        className='editBtn btn mt-5 my-3 d-none '
+      >
+        Choose a plan
+      </Link>
+    );
+  } else if (!isEmpty(user.offers)) {
+    productBtn = (
+      <Link to='/products' type='button' className='editBtn btn mt-5 my-3 '>
+        Choose a plan
+      </Link>
+    );
+  }
+
   return (
     <Fragment>
       <div className='col-md-12 col-sm-12  policies'>
@@ -53,6 +73,7 @@ const DashboardPolicies = ({ user, loading }) => {
         <div className='d-flex flex-md-row flex-sm-column flex-md-wrap policesControl'>
           {policies}
         </div>
+        {productBtn}
       </div>
     </Fragment>
   );
