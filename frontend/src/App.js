@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Redirect,
-  Route,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utillis/setAuthtoken';
 import { setCurrentUser, logoutUser } from './actions/authActions';

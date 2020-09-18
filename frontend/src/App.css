@@ -9,7 +9,7 @@
 
 .landing {
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   background-image: url('../src/img/Group_605 (1).png');
   background-size: 100%;
   background-repeat: no-repeat;
@@ -454,6 +454,12 @@ nav {
   border-radius: 10px;
   border: solid 0.5px #141414;
 }
+.selectFieldGroup {
+  /* width: 337px; */
+  height: 49px;
+  border-radius: 10px;
+  border: solid 0.5px #141414;
+}
 /* input[type='radio'] {
   visibility: hidden;
 } */
@@ -580,16 +586,24 @@ nav {
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.45;
+  line-height: 1.7;
   letter-spacing: normal;
   text-align: center;
   color: #ffffff;
 }
 
 /* Meduim upwards Screens */
-@media screen and (min-width: 868px) and (max-width: 1200) {
+@media screen and (min-width: 1024px) and (max-width: 1370) {
   .spacer {
     margin-left: 20px !important;
+  }
+  .landing {
+    width: 100%;
+    height: 50vh;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
   }
 }
 
@@ -652,6 +666,10 @@ nav {
 
     text-align: center;
     color: #141414;
+  }
+
+  .productHeader {
+    margin-top: 30px;
   }
 
   .productList {
@@ -828,7 +846,12 @@ nav {
     border-radius: 10px;
     border: solid 0.5px #141414;
   }
-
+  .selectFieldGroup {
+    width: 85%;
+    height: 49px;
+    border-radius: 10px;
+    border: solid 0.5px #141414;
+  }
   .signIn,
   .signUp {
     height: auto;

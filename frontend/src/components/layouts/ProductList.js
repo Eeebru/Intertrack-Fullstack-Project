@@ -14,7 +14,7 @@ const ProductList = () => {
   return (
     <Fragment>
       <Landing />
-      <section className='mt-4'>
+      <section className='mt-sm-5'>
         <h2 className='productHeader text-center mb-4'>
           Every Insurance you need in the 21st Century
         </h2>
@@ -103,7 +103,7 @@ const ProductList = () => {
           Are you skeptical if this is for you? Let us inform you.
         </h2>
         <p className='infoText text-center'>
-          We do care willing to inform you on everything you need to know{' '}
+          We do care and willing to inform you on everything you need to know{' '}
           <br className='break' /> about insurance policies.
         </p>
 
