@@ -9,8 +9,8 @@ const validInfo = require('../middleware/validInfo');
 router.post('/signup', validInfo, async (req, res, next) => {
   try {
     let { name, email, password } = req.body;
-    console.log(req.body);
 
+    //checking if the use email already exist
     const user = await db.query(
       `SELECT * FROM public."user" WHERE email = $1`,
       [email]
@@ -20,14 +20,19 @@ router.post('/signup', validInfo, async (req, res, next) => {
         .status(401)
         .json({ message: `User with email ${email} already exist` });
     }
+
+    //hashing user's password
     const saltRound = 10;
     const salt = await bcrypt.genSalt(saltRound);
     const bcryptPassword = await bcrypt.hash(password, salt);
 
+    //inserting user registration data into the db
     const newUser = await db.query(
       `INSERT INTO public."user" (name, email, password) VALUES($1,$2,$3)  RETURNING *`,
       [name, email, bcryptPassword]
     );
+
+    //Generating a JWT token
     const token = jwtGen(newUser.rows[0].id);
     res
       .status(201)

@@ -10,6 +10,7 @@ app.use(morgan('tiny'));
 
 //The very root route
 app.get('/', (req, res) => {
+  console.log(req);
   res.send({ message: 'WELCOME!! Backend For Alles Insurance ' });
 });
 
