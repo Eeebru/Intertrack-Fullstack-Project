@@ -19,7 +19,7 @@ app.use('/', require('./routes/user-signup-login'));
 // User routes
 app.use('/user', require('./routes/user'));
 //add product route
-app.use('/', require('./routes/product'));
+app.use('/product', require('./routes/product'));
 //making order route
 app.use('/', require('./routes/order'));
 
